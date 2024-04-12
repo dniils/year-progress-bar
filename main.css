@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+:root {
+  --background-color: #171718;
+  --border-color: #333347;
+  --bar-background-color: #282839;
+  --filler-color: #484863;
+  --text-color: #484863;
+  --mark-color: #ff510085;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: var(--background-color);
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 5rem;
+  background-color: var(--bar-background-color);
+  border: 1.75vw solid var(--border-color);
+}
+
+.progress-bar .progress-bar__filler {
+  width: 0;
+  height: 100%;
+  background-color: var(--filler-color);
+  transition: 1s ease-in;
+}
+
+.progress-bar .progress-bar__25,
+.progress-bar .progress-bar__50,
+.progress-bar .progress-bar__75 {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--mark-color);
+  width: 1px;
+  height: 150%;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.progress-bar .progress-bar__25::after,
+.progress-bar .progress-bar__50::after,
+.progress-bar .progress-bar__75::after {
+  position: absolute;
+  top: -1rem;
+  left: 1px;
+  line-height: 1;
+  border-bottom: 1px solid var(--mark-color);
+  color: var(--mark-color);
+}
+
+.progress-bar .progress-bar__25::after {
+  content: "25";
+}
+.progress-bar .progress-bar__50::after {
+  content: "50";
+}
+.progress-bar .progress-bar__75::after {
+  content: "75";
+}
+
+.progress-bar .progress-bar__25 {
+  left: 25%;
+}
+.progress-bar .progress-bar__50 {
+  left: 50%;
+}
+.progress-bar .progress-bar__75 {
+  left: 75%;
+}
+
+.progress-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+@media screen and (min-width: 768px) {
+  .progress-bar {
+    border-width: 0.75rem;
+  }
+}
